@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Disk Analyzer Lite</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <button id="btn-open" title="Choose a folder to scan">Scan Folder…</button>
+  <button id="btn-rescan" disabled>Rescan</button>
+  <span class="sep"></span>
+  <button id="btn-up" disabled title="Zoom out (Backspace)">⬆ Zoom Out</button>
+  <button id="btn-zoom" disabled title="Zoom into selection (Enter)">⬇ Zoom In</button>
+  <span class="sep"></span>
+  <button id="btn-reveal" disabled title="Show in Finder">Reveal</button>
+  <button id="btn-trash" class="danger" disabled title="Move selection to Trash (⌘⌫)">Move to Trash</button>
+  <div id="crumbs"></div>
+  <div id="disk" hidden title="">
+    <div id="disk-bar"><i id="disk-used"></i><i id="disk-trash"></i><i id="disk-freed"></i></div>
+    <div id="disk-text"></div>
+  </div>
+  <span class="sep"></span>
+  <button id="btn-left" class="toggle on" title="Show/hide folder tree">◧</button>
+  <button id="btn-right" class="toggle on" title="Show/hide kinds list">◨</button>
+</header>
+
+<main>
+  <section id="tree-pane">
+    <div class="pane-head"><span>Name</span><span>Size</span></div>
+    <div id="tree"></div>
+  </section>
+  <section id="map-pane">
+    <canvas id="map"></canvas>
+    <canvas id="mask"></canvas>
+    <canvas id="overlay"></canvas>
+    <div id="tooltip"></div>
+    <div id="welcome">
+      <h1>Disk Analyzer Lite</h1>
+      <p>See what is filling up your disk.</p>
+      <div class="choices">
+        <button data-scan="home">Home folder</button>
+        <button data-scan="disk">Whole disk</button>
+        <button data-scan="pick">Choose folder…</button>
+      </div>
+      <p class="hint" id="hint">Tip: give the app Full Disk Access in System Settings › Privacy &amp; Security for complete results.</p>
+      <p class="credit">Created by Xavi Esteve · xaviesteve.com</p>
+    </div>
+    <div id="progress" hidden>
+      <div class="spinner"></div>
+      <div id="progress-text">Scanning…</div>
+      <button id="btn-cancel">Cancel</button>
+    </div>
+  </section>
+  <section id="kinds-pane">
+    <div class="pane-head"><span>Kind</span><span>Size</span><span>Files</span></div>
+    <div id="kinds"></div>
+  </section>
+</main>
+
+<div id="ctxmenu" hidden>
+  <div data-act="copy">Copy Absolute Path</div>
+  <div data-act="reveal">Reveal in Finder</div>
+  <hr>
+  <div data-act="trash" class="danger">Move to Trash</div>
+</div>
+
+<footer id="status">Ready</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

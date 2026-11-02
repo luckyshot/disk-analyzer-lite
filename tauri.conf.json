@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Disk Analyzer Lite",
+  "version": "0.1.0",
+  "identifier": "com.xaviesteve.diskanalyzerlite",
+  "build": {
+    "frontendDist": "ui"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Disk Analyzer Lite",
+        "width": 1400,
+        "height": 860,
+        "minWidth": 800,
+        "minHeight": 500
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg",
+      "deb",
+      "appimage"
+    ],
+    "icon": [
+      "icons/icon.png"
+    ],
+    "category": "Utility",
+    "shortDescription": "See what is filling up your disk",
+    "copyright": "© 2026 Xavi Esteve. MIT License.",
+    "macOS": {
+      "minimumSystemVersion": "10.15",
+      "entitlements": "Entitlements.plist"
+    }
+  },
+  "mainBinaryName": "disk-analyzer-lite"
+}

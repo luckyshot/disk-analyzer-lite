@@ -1,0 +1,11 @@
+{
+  "name": "disk-analyzer-lite",
+  "private": true,
+  "description": "UI tests for Disk Analyzer Lite (no dependencies; the app itself is built with Cargo)",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/ui/"
+  }
+}
