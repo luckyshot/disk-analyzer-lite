@@ -65,7 +65,7 @@ jobs:
           releaseBody: See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/CHANGELOG.md) for what's new. Verify downloads against `SHA256SUMS.txt`.
           releaseDraft: true
       - name: Keep installers as workflow artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: installers-${{ matrix.os }}
           path: |
